@@ -1,0 +1,7 @@
+#VCenter Starter
+
+import getpass
+passw = getpass.getpass()
+from.pyVim.connect import SmartConnect
+import ssl
+s=ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)
