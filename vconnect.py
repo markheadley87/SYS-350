@@ -42,7 +42,7 @@ print("VCenter Version: ", aboutInfo.fullName)
 # Requirement 3
 def get_vm_by_name(content, vm_name = None): # Creates a function to get VM by name
     vm_list = [] # Creates an array to store VM data
-    container = content.viewManager.CreateContainerView(content.rootFolder, [vim.VirtualMachine], True) # Passes VCenter container data to a variable we can call
+    container = content.viewManager.CreateContainerView(content.rootFolder, [vim.VirtualMachine], True) # Passes VCenter container data to a variable we can call, had to grab this from ChatGPT because the syntax is challenging
     for vm in container.view: # Creates a loop to iterate through all the VMs in the container
         if vm_name is None or vm_name.lower() in vm.name.lower(): # Checks if an input is given, then converts the input (if there is one) into lowercase then checks if that VM exists
             vm_list.append(vm) # Adds the to the end of the array
@@ -87,3 +87,6 @@ for vm in found_vms: # For loop to use the name in requirement 3 to gather data 
     print(f"CPUS: {info['num_cpus']}")
     print(f"Memory: {info['memory']}")
     print(f"IP: {info['ip']}")
+
+
+# Note all of these print statements can be removed to purely store data, therefore being able to call them in other functions
